@@ -13,9 +13,24 @@
     --dark-grey: #d1d1d1;
     --black: #000000;
     --footer:#333333;
-
+    --input-placeholder: #868899;
+    --footer-callout: #4E4D55;
+    --footer-callout-btn: #117765;
   }
   
+  /* Mozilla v130 + issue for ::placeholder psuedo */
+
+  input::placeholder {
+    color: var(--black);
+    opacity: 1;
+  }
+
+  input {
+    color: var(--black);
+  }
+
+  /* END OF Mozilla v130 + issue for ::placeholder psuedo */
+
   body {
     width: 100%;
   }
@@ -133,6 +148,8 @@
     padding-bottom: 20px;
     border: none;
     border-bottom: 3px solid var(--dark-grey);
+    /* Mozilla has issue with default background color */
+    background-color: transparent;
   }
   
   .form-body input:focus,
@@ -140,22 +157,29 @@
     font-family: "Figtree";
     font-size: 25px;
     font-weight: 500;
-    color: var(--black);
+    color: var(--input-placeholder);
     padding-bottom: 20px;
     outline: none;
     border-bottom: 3px solid var(--black);
   }
   
+  /* Chrome ::placeholder input */
   .form-body p,
+  .form-body input::placeholder,
   .form-body input::placeholder {
     font-family: "Figtree";
     font-size: 25px;
     font-weight: 500;
     color: var(--black);
   }
-  
+
+  #interest {
+    margin-left: 0;
+  }
+
   #message {
     height: 150px;
+    color: var(--black);
   }
   
   .form-body button {
@@ -230,10 +254,111 @@
     color: var(--white);
   }
 
+  .footer-callout {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  .footer-callout-wrapper {
+    background-color: var(--footer-callout);
+    border-radius: 20px;
+    padding: 90px 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-callout-logo {
+    width: 117px;
+    height: 117px;
+  }
+
+  .footer-callout-label {
+    font-family: 'Figtree';
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--white);
+    width: 70%;
+  }
+
+  .footer-callout-btn button {
+    background-color: var(--footer-callout-btn);
+    padding: 18px 24px;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Figtree';
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+  }
+
+  .footer-line {
+    width: 72.2%;
+    border-bottom: 3px var(--white) solid;
+    padding: 103px 0 0;
+    margin: 0 auto;
+  }
+
   .footer-navigation {
     width: 75%;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 100px 0 100px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-a {
+    width: 20.5%;
     display: flex;
     flex-direction: column;
+    row-gap: 30px;
   }
+
+  .footer-label {
+    font-family: 'Catamaran';
+    font-weight: 600;
+    color: var(--orange);
+    font-size: 25px;
+  }
+
+  .footer-b {
+    width: 58.4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footer-menu-wrapper a {
+    font-size: 18px;
+    color: var(--white);
+    text-decoration: none;
+    line-height: 40px;
+  }
+
+  .footer-menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-navigation-wrapper,
+  .footer-address-warpper,
+  .footer-browse-wrapper,
+  .footer-group-wrapper,
+  .footer-explore-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .social-media-icons-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0 140px 0;
+  }
+
+
